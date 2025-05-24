@@ -11,7 +11,7 @@ public class PrintZ_PEP3 {
 		System.out.println("* * * * *");
 		
 		// in oneline
-		System.out.println("print using one line");
+		System.out.println("pring using one line");
 		System.out.println("* * * * *\n      *\n    *\n  *\n* * * * *");
 		
 	}
