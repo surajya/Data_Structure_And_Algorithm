@@ -1,0 +1,19 @@
+package com.pep.zeroToFifty;
+
+public class PEP003_PrintZ {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("* * * * *");
+		System.out.println("      *");
+		System.out.println("    *");
+		System.out.println("  *");
+		System.out.println("* * * * *");
+		
+		// in oneline
+		System.out.println("print using one line");
+		System.out.println("* * * * *\n      *\n    *\n  *\n* * * * *");
+		
+	}
+
+}
