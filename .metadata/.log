@@ -69,3 +69,60 @@ Caused by: java.net.UnknownHostException: services.gradle.org
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2025-05-24 17:47:27.325
 !MESSAGE Classpath changed for project: DSA_LEVEL_1
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2025-05-24 17:55:33.263
+!MESSAGE Server returned lastModified <= 0 for https://raw.githubusercontent.com/thymeleaf/thymeleaf-extras-eclipse-plugin/update-site/2.1.2/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2025-05-24 17:55:34.540
+!MESSAGE Server returned lastModified <= 0 for https://raw.githubusercontent.com/thymeleaf/thymeleaf-extras-eclipse-plugin/update-site/3.0.0/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2025-05-24 17:55:36.141
+!MESSAGE Server returned lastModified <= 0 for https://raw.githubusercontent.com/thymeleaf/thymeleaf-extras-eclipse-plugin/update-site/3.0.1/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2025-05-24 17:55:37.316
+!MESSAGE Server returned lastModified <= 0 for https://raw.githubusercontent.com/thymeleaf/thymeleaf-extras-eclipse-plugin/update-site/3.1.0/content.jar
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2025-05-24 17:56:05.444
+!MESSAGE No repository found at https://projectlombok.org/.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2025-05-24 18:01:40.758
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\Users\abcd\Downloads\sts-4.24.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\javaw.exe
+-Dsts.lsp.client=eclipse
+-Xmx1024m
+-XX:TieredStopAtLevel=1
+-Dspring.config.location=classpath:/application.properties
+-Xlog:jni+resolve=off
+-XX:ErrorFile=D:/JAVA/Data_Structure_And_Algorithm/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1748089900756
+-Dlanguageserver.hover-timeout=225
+-jar
+C:\Users\abcd\Downloads\sts-4.24.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.59.0.202411281450\servers\spring-boot-language-server\spring-boot-language-server-1.59.0-SNAPSHOT-exec.jar
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-05-24 18:01:40.798
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2025-05-24 18:01:40.812
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 3684
+
+!ENTRY org.eclipse.jface 2 0 2025-05-24 18:01:41.648
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2025-05-24 18:01:41.648
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(io.emmet.eclipse.commands.match_pair_outward,Match Pair Outward,
+		,
+		Category(io.emmet.eclipse.commands.category,Emmet,null,true),
+		WorkbenchHandlerServiceHandler("io.emmet.eclipse.commands.match_pair_outward"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.text.delete.line"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
