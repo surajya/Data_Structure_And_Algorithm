@@ -1,0 +1,34 @@
+package com.pep.zeroToFifty;
+
+import java.util.Scanner;
+
+public class PEP053_Pattern10 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the row");
+		Scanner sc=new Scanner(System.in);
+		int row= Integer.parseInt(sc.nextLine());
+		int mid=row/2;
+		int os=mid+1, is=-3;
+		for(int i=0; i<row; i++) {
+			if(i<=mid) {
+				os-=1;
+				is+=2;
+			}else {
+				os+=1;
+				is-=2;
+			}
+			System.out.println(os+"  :   "+is);
+			
+			int ins=is, ous=os;
+			for(int j=0; j<row; j++) {
+				if(ous-->0) System.out.print("  ");
+				else if (ous--==0) System.out.println("* ");
+				else if(ins-->0) System.out.println("  ");
+				else if(ins--==0) System.out.println("* ");
+			}
+		}
+	}
+
+}

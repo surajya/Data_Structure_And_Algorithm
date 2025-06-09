@@ -1,0 +1,50 @@
+package com.pep.zeroToFifty;
+
+import java.util.Scanner;
+
+public class PEP065_Pattern16 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows (odd number recommended): ");
+        int totalRows = Integer.parseInt(sc.nextLine());
+        sc.close();
+
+        int half = totalRows / 2;
+        int outerSpaces = half + 1;
+        int innerNumbers = -1;
+
+        for (int i = 1; i <= totalRows; i++) {
+            int currentVal;
+
+            // Adjust space and number count for top and bottom halves
+            if (i <= half + 1) {
+                outerSpaces--;
+                innerNumbers += 2;
+                currentVal = i;
+            } else {
+                outerSpaces++;
+                innerNumbers -= 2;
+                currentVal = totalRows - i + 1;
+            }
+
+            // Print outer spaces
+            for (int j = 1; j <= outerSpaces; j++) {
+                System.out.print("  ");
+            }
+
+            // Print numbers
+            int tempVal = currentVal;
+            for (int j = 1; j <= innerNumbers; j++) {
+                System.out.print(tempVal + " ");
+                if (j <= innerNumbers / 2) {
+                    tempVal++;
+                } else {
+                    tempVal--;
+                }
+            }
+
+            System.out.println();
+        }
+    }
+}

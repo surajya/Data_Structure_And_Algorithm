@@ -1,0 +1,22 @@
+package com.pep.zeroToFifty;
+
+import java.util.Scanner;
+
+public class PEP043_Pattern5A {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the row");
+		Scanner sc=new Scanner(System.in);
+		int a= Integer.parseInt(sc.nextLine());
+		int b=a/2;
+		for(int i=0; i<b+1; i++) {
+			for(int j=0; j<a; j++) {
+				if(j>=b-i && j<=b+i) System.out.print("* ");
+				else System.out.print("  ");
+			}
+			System.out.println();
+		}
+	}
+
+}

@@ -1,0 +1,33 @@
+package com.pep.zeroToFifty;
+
+import java.util.Scanner;
+
+public class PEP065_Pattern16 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows : ");
+        int totalRows = Integer.parseInt(sc.nextLine());
+        sc.close();
+
+        int totalCols=2*totalRows-1;
+        int innerSpace=2*totalRows-3;
+
+        for (int i = 1; i <= totalRows; i++) {
+        	
+            // Print numbers
+        	int dummySpace=innerSpace, printValue=0;
+            for (int j = 1; j <= totalCols; j++) {
+                if(j<=i) {System.out.print(j+" "); printValue=j;}
+                else if(dummySpace-->0) System.out.print("  ");
+                else if(j!=totalCols) System.out.print(printValue--+" ");
+                else if(j==totalCols) System.out.print(--printValue+" ");
+            }
+            
+         // Adjust space and number count for top and bottom halves
+            innerSpace -=2;
+
+            System.out.println();
+        }
+    }
+}

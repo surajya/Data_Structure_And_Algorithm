@@ -1,0 +1,26 @@
+package com.pep.zeroToFifty;
+
+import java.util.Scanner;
+
+public class PEP053_Pattern10 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the row");
+		Scanner sc=new Scanner(System.in);
+		int row= Integer.parseInt(sc.nextLine());
+		int mid=row/2;
+		int os=mid, is=-1;
+		for(int i=0; i<row; i++) {
+			System.out.println(os+"  :   "+is);
+			if(i<=mid) {
+				os--;
+				is+=2;
+			}else {
+				os++;
+				is-=2;
+			}
+		}
+	}
+
+}

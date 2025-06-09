@@ -1,0 +1,32 @@
+package com.pep.zeroToFifty;
+
+import java.util.Scanner;
+
+public class PEP069_Pattern18 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows (recommended odd number): ");
+        int totalRows = Integer.parseInt(sc.nextLine());
+        sc.close();
+
+        int mid = (totalRows + 1) / 2;
+
+        for (int i = 1; i <= totalRows; i++) {
+            int stars = totalRows - 2 * Math.abs(mid - i);  // star count shrinks then expands
+            int spaces = (totalRows - stars) / 2;           // calculate side spaces
+
+            // print leading spaces
+            for (int j = 1; j <= spaces; j++) {
+                System.out.print("  ");
+            }
+
+            // print stars
+            for (int j = 1; j <= stars; j++) {
+                System.out.print("* ");
+            }
+
+            System.out.println();
+        }
+    }
+}
