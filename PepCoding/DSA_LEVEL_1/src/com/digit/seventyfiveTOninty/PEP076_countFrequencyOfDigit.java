@@ -1,0 +1,24 @@
+package com.digit.seventyfiveTOninty;
+
+import java.util.Scanner;
+
+public class PEP076_countFrequencyOfDigit {
+	
+	public static int findFrequency(int num, int digit) {
+		int count=0;
+		while(num>0) {
+			if(num%10==digit) count++;
+			num/=10;
+		}
+		return count;
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter your number: ");
+		int num=Integer.parseInt(sc.nextLine());
+		int digit=5;
+		System.out.println("frequency of "+digit+" in "+ num +" is: "+findFrequency(num,digit));
+	}
+
+}
