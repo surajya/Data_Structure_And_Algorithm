@@ -1,0 +1,32 @@
+package com.array.nintyToOneThirty;
+
+import java.util.Stack;
+
+public class PEP104_DuplicateBracket {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str="((a+b)+(c+d))";
+		
+		Stack<Character> stack=new Stack<>();
+		int i=0;
+		while(i<str.length()) {
+			char c=str.charAt(i++);
+			if(stack.isEmpty()) {
+				stack.push(c);
+			}else {
+				if(c==')') {
+					if(stack.peek()=='(') {
+						System.out.println("String have duplicate brackert");
+						System.exit(0);
+					}else {
+						while(stack.pop()!='(') ;
+					}
+				}else stack.push(c);
+				
+			}
+		}
+		System.out.println("string have not duplicate bracket");
+	}
+
+}

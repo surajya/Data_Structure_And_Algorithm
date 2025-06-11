@@ -1,0 +1,29 @@
+package com.digit.seventyfiveTOninty;
+
+import java.util.Scanner;
+
+public class PEP076_DigitFrequency {
+	
+	public static long convertBase(int num, int base, int conBase) {
+		long count=0, i=1;
+		while(num>0) {
+			int rem=num%conBase;
+			count+=i*rem;
+			num/=conBase;
+			i*=base;
+		}
+		return count;
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter your initial base: ");
+		int base=Integer.parseInt(sc.nextLine());
+		System.out.print("Enter your number: ");
+		int num=Integer.parseInt(sc.nextLine());
+		System.out.print("Enter converted base: ");
+		int conBase=Integer.parseInt(sc.nextLine());
+		System.out.println("Convert number "+num+" from base "+base+" into converted base "+ conBase +" is: "+convertBase(num,base, conBase));
+	}
+
+}

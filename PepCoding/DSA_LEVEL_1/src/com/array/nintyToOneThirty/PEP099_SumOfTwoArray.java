@@ -1,0 +1,26 @@
+package com.array.nintyToOneThirty;
+
+import java.util.Scanner;
+
+public class PEP099_SumOfTwoArray {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] arrA= {2,5,4,9,2};
+		int[] arrB= {9,6,4,8,3,2,7,5};
+		int lenA=arrA.length-1, lenB=arrB.length-1, sum=0, carry=0;
+		String str="";
+		while(lenA>=0 || lenB>=0 || carry>0) {
+			if(lenA>=0 && lenB>=0)  sum=arrA[lenA--]+arrB[lenB--]+carry;
+			else if(lenA>=0) sum=arrA[lenA--]+carry;
+			else if (lenB>=0) sum=arrB[lenB--]+carry;
+			else sum=carry;
+			carry=0;
+			if(sum>=10) {
+				str=sum%10 +str;
+				carry=1;
+			}else str=sum+str;
+		}
+		System.out.println(str);
+	}
+}

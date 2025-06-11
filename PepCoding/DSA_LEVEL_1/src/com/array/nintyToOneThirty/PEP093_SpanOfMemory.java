@@ -1,0 +1,23 @@
+package com.array.nintyToOneThirty;
+
+import java.util.Scanner;
+
+public class PEP093_SpanOfMemory {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter the size of array: ");
+		int len=Integer.parseInt(sc.nextLine());
+		int[] arr=new int[len];
+		
+		int min=Integer.MAX_VALUE, max=Integer.MIN_VALUE;
+		for(int i=0; i<len; i++) {
+			arr[i]=Integer.parseInt(sc.nextLine());
+			min=Integer.min(min, arr[i]);
+			max=Integer.max(max, arr[i]);
+		}
+		System.out.println("Span of array is: "+(max-min));
+	}
+
+}

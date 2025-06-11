@@ -1,0 +1,59 @@
+package com.digit.seventyfiveTOninty;
+
+import java.util.Scanner;
+
+public class PEP085_anyBaseAddition {
+	
+	public static long findSum(int base, int numA, int numB) {
+		long ans=0, carry=0, sum=0, i=1;
+		while(numA>0 && numB>0) {
+			sum=numA%base+numB%base+carry;
+			carry=0;
+			if(sum>=base) {
+				sum=sum%base;
+				carry=1;
+			}
+			ans +=sum*i;
+			i*=10;
+			numA/=10; numB/=10;
+		}
+		while(numA>0) {
+			sum=numA%base+carry;
+			carry=0;
+			if(sum>=base) {
+				sum=sum%base;
+				carry=1;
+			}
+			ans +=sum*i;
+			i*=10;
+			numA/=10;
+		}
+		while(numB>0) {
+			sum=numA%base+numB%base+carry;
+			carry=0;
+			if(sum>=base) {
+				sum=sum%base;
+				carry=1;
+			}
+			ans +=sum*i;
+			i*=10;
+			numB/=10;
+		}
+		
+		return ans;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter base of number: ");
+		int base=Integer.parseInt(sc.nextLine());
+		System.out.print("Enter your first number: ");
+		int numA=Integer.parseInt(sc.nextLine());
+		System.out.print("Enter second number: ");
+		int numB=Integer.parseInt(sc.nextLine());
+		
+		System.out.println("Addition of "+numA+" and "+numB+" of base: "+base+" is: "+findSum(base, numA, numB));
+	}
+
+}

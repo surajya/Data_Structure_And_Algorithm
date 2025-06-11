@@ -1,0 +1,37 @@
+package com.array.nintyToOneThirty;
+
+import java.util.Scanner;
+
+public class PEP097_PrintBarChart {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter the size of array: ");
+		int len=Integer.parseInt(sc.nextLine());
+		int[] arr=new int[len];
+		
+		System.out.println("Enter Number: ");
+		for(int i=0; i<len; i++) {
+			arr[i]=Integer.parseInt(sc.nextLine());
+			
+		}
+		
+		System.out.print("Enter the number that you want to find: ");
+		int num=Integer.parseInt(sc.nextLine());
+		
+		
+		System.out.println("number is present at index: "+findingNumber(arr,num));
+	}
+	
+	public static int findingNumber(int[] arr, int num) {
+		for(int i=0; i<arr.length; i++) {
+			if(arr[i]==num) {
+				return i;
+			}
+		}
+		return -1;
+		
+	}
+
+}

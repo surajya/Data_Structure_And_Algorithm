@@ -1,0 +1,26 @@
+package com.digit.seventyfiveTOninty;
+
+import java.util.Scanner;
+
+public class PEP076_DigitFrequency {
+	
+	public static long convertBase(int num, int base) {
+		long count=0, i=0;
+		while(num>0) {
+			int rem=num%2;
+			count+=Math.pow(10,i)*rem;
+			num/=2;
+			i++;
+		}
+		return count;
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter your number: ");
+		int num=Integer.parseInt(sc.nextLine());
+		int digit=2;
+		System.out.println("Convert decimal number "+digit+" into Binary "+ num +" is: "+convertBase(num,digit));
+	}
+
+}
