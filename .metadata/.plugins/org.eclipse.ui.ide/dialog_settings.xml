@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="installedFeatures">
-		<item value="com.tabnine.eclipse.feature:1.121.0"/>
+		<item value="com.tabnine.eclipse.feature:1.143.0"/>
 		<item value="io.emmet.eclipse:1.0.0.201401132323"/>
 		<item value="org.eclipse.buildship:3.1.10.v20240802-1314"/>
 		<item value="org.eclipse.eclemma.feature:3.1.9.202405260028"/>
 		<item value="org.eclipse.egit.gitflow.feature:7.1.0.202411261347-r"/>
 		<item value="org.eclipse.egit:7.1.0.202411261347-r"/>
-		<item value="org.eclipse.emf.common:2.33.0.v20240911-1027"/>
-		<item value="org.eclipse.emf.ecore:2.39.0.v20241018-1213"/>
+		<item value="org.eclipse.emf.common:2.35.0.v20250401-0947"/>
+		<item value="org.eclipse.emf.ecore:2.40.0.v20250414-1351"/>
 		<item value="org.eclipse.epp.mpc:1.11.0.v20240709-1650"/>
 		<item value="org.eclipse.help:2.3.2000.v20241120-1800"/>
 		<item value="org.eclipse.jdt:3.20.0.v20241120-1800"/>
