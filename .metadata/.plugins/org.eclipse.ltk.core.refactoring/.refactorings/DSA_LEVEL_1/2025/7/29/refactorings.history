@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;PEP137_BuildNormalStack.java&apos; to &apos;com.stackQueueLinkedList.OneThreeOneToTwoOneThree.PEP137_BuildNormalStack.java&apos;&#x0D;&#x0A;- Original project: &apos;DSA_LEVEL_1&apos;&#x0D;&#x0A;- Destination element: &apos;com.stackQueueLinkedList.OneThreeOneToTwoOneThree.PEP137_BuildNormalStack.java&apos;&#x0D;&#x0A;- Original element: &apos;com.stackQueueLinkedList.OneThreeOneToTwoOneThree.PEP137_BuildNormalStack.java&apos;" description="Copy compilation unit" destination="/src&lt;com.stackQueueLinkedList.OneThreeOneToTwoOneThree{PEP137_BuildNormalStack.java" element1="/src&lt;com.stackQueueLinkedList.OneThreeOneToTwoOneThree{PEP137_BuildNormalStack.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1752423221732" units="1" version="1.0"/>
+</session>
