@@ -1,0 +1,21 @@
+# Eclipse workspace metadata
+.metadata/
+
+# Eclipse/IDEA/VSCode misc
+*.log
+*.tmp
+*.swp
+
+# SonarLint cache
+.sonarlint/
+
+# Eclipse specific
+.classpath
+.project
+.settings/
+
+# Build directories
+bin/
+target/
+out/
+
