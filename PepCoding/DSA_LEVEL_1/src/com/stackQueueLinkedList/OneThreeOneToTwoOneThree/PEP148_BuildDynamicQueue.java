@@ -1,9 +1,8 @@
 package com.stackQueueLinkedList.OneThreeOneToTwoOneThree;
 
 import java.util.Scanner;
-import java.util.Stack;
 
-public class PEP146_BuildNormalQueue {
+public class PEP148_BuildDynamicQueue {
 	static Scanner sc = new Scanner(System.in);
 	static int[] allData;
 	static int sizeq;
@@ -29,7 +28,7 @@ public class PEP146_BuildNormalQueue {
 
 		while (true) {
 			System.out.println(
-					"PLZ select the operation \n 1 : SIZE \t 2 : DISPLAY \t 3 : ADD \t 4 : REMOVE \t 5 : PEEK \t 0 : EXIT");
+					"PLZ select the operation ->  1 : SIZE \t 2 : DISPLAY \t 3 : ADD \t 4 : REMOVE \t 5 : PEEK \t 0 : EXIT");
 
 			int index = Integer.parseInt(sc.nextLine());
 
@@ -59,7 +58,7 @@ public class PEP146_BuildNormalQueue {
 					}
 					System.out.println();
 				} else {
-					System.out.println("Queue is empty!!!");
+					System.out.println("Queue is empty!!! ");
 				}
 				break;
 
@@ -74,7 +73,26 @@ public class PEP146_BuildNormalQueue {
 					rear = (rear + 1) % sizeq;
 					allData[rear] = a;
 				} else {
-					System.out.println("Queue is full !!\n");
+					sizeq = 2*sizeq;
+					int[] allDataDummy = new int[sizeq];
+					int z = 0;
+					if (rear >= front) {
+						for (int i = front; i <= rear; i++) {
+							allDataDummy[z++] = allData[i];
+						}
+					} else {
+						int x = front;
+						do {
+							allDataDummy[z++] = allData[x];
+							x = (x + 1) % sizeq;
+						} while (x-1 != rear);
+					}
+					front = 0;
+					rear=z;
+					allDataDummy[rear]=a;
+					z=0;
+					allData = allDataDummy;
+					allDataDummy = null;
 				}
 				break;
 
