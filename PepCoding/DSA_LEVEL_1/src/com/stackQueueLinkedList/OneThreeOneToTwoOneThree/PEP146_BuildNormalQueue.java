@@ -1,7 +1,6 @@
 package com.stackQueueLinkedList.OneThreeOneToTwoOneThree;
 
 import java.util.Scanner;
-import java.util.Stack;
 
 public class PEP146_BuildNormalQueue {
 	static Scanner sc = new Scanner(System.in);
