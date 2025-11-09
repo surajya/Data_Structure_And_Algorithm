@@ -2,7 +2,7 @@ package com.stackQueueLinkedList.OneThreeOneToTwoOneThree;
 
 import java.util.Scanner;
 
-public class PEP152_AddLastInLinkedList {
+public class PEP155_RemoveFirstElementFromLinkedList {
 	static Scanner sc = new Scanner(System.in);
 	static PEP151_LinkedList linkedlist;
 
@@ -17,7 +17,7 @@ public class PEP152_AddLastInLinkedList {
 		initLinkedList();
 		while (true) {
 			System.out.println(
-					"PLZ select the operation ->  1 : SIZE \t 2 : DISPLAY \t 3 : ADD \t 4 : REMOVE \t 5 : PEEK \t 0 : EXIT");
+					"PLZ select the operation ->  1 : SIZE \t 2 : DISPLAY \t 3 : ADD \t 4 : Remove first element \t 0 : EXIT");
 
 			int index = Integer.parseInt(sc.nextLine());
 
@@ -41,7 +41,8 @@ public class PEP152_AddLastInLinkedList {
 				}
 				System.out.print("Element of linkedlist: ");
 				while(test!=null) {
-					System.out.print(test.data+" ");
+					if(test.next == null) System.out.print(test.data);
+					else System.out.print(test.data+" -> ");
 					test=test.next;
 				}
 				System.out.println();
@@ -62,6 +63,21 @@ public class PEP152_AddLastInLinkedList {
 					linkedlist.tail.next = node;
 					linkedlist.tail = node;
 					linkedlist.sz += 1;
+				}
+				break;
+				
+			case 4 :
+				if(linkedlist.head == null) {
+					System.out.println("Linked list has no element, before deletion pls add some data");
+				}else if(linkedlist.sz==1) {
+					System.out.println("removing element from linked list : "+ linkedlist.head.data);
+					linkedlist.head = null;
+					linkedlist.tail = null;
+					linkedlist.sz = 0;
+				}else {
+					System.out.println("removing element from linked list : "+ linkedlist.head.data);
+					linkedlist.head = linkedlist.head.next;
+					linkedlist.sz= linkedlist.sz - 1;
 				}
 				break;
 			}

@@ -11,7 +11,6 @@ public class PEP143_MinimumStack2 {
 		Stack<Integer> allData = new Stack<Integer>();
 		int minData =0;
 		Scanner sc=new Scanner(System.in);
-		Integer min=Integer.MAX_VALUE;
 		int a;
 		
 		while (true) {
