@@ -2,7 +2,7 @@ package com.stackQueueLinkedList.OneThreeOneToTwoOneThree;
 
 import java.util.Scanner;
 
-public class PEP183_MergeSortLinkedList {
+public class PEP186_OddEventLinkedList {
 	static Scanner sc = new Scanner(System.in);
 	static PEP151_LinkedList linkedlist;
 	static PEP151_LinkedList linkedlist1;
@@ -75,9 +75,7 @@ public class PEP183_MergeSortLinkedList {
 		System.out.println();
 	}
 
-	public static void addElement(PEP151_LinkedList linkedlist) {
-		System.out.println("Enter the element to add at End: ");
-		int a = Integer.parseInt(sc.nextLine());
+	public static void addElement(PEP151_LinkedList linkedlist, int a) {
 		PEP150_Node node = new PEP150_Node();
 		node.data = a;
 		node.next = null;
@@ -219,11 +217,51 @@ public class PEP183_MergeSortLinkedList {
 		return mergeTwoSortedLinkedList(l1, l2);
 	}
 
+	private static PEP151_LinkedList removeDuplicateElementSortedLinkedlist(PEP151_LinkedList list) {
+		if (list.head == null || list.head.next == null) {
+			return list;
+		}
+
+		PEP150_Node traverseNode = list.head;
+
+		while (traverseNode != null && traverseNode.next != null) {
+
+			if (traverseNode.data == traverseNode.next.data) {
+				traverseNode.next = traverseNode.next.next;
+			} else {
+				traverseNode = traverseNode.next;
+			}
+		}
+
+		return list;
+	}
+
+	private static PEP151_LinkedList filterOddEventLinkedlist(PEP151_LinkedList list) {
+
+		PEP150_Node testNode = list.head;
+		PEP151_LinkedList oddList = new PEP151_LinkedList();
+		PEP151_LinkedList evenList = new PEP151_LinkedList();
+
+		while (testNode != null) {
+			int testdata = testNode.data;
+			if (testdata % 2 != 0) {
+				addElement(oddList, testdata);
+			} else {
+				addElement(evenList, testdata);
+			}
+			testNode = testNode.next;
+
+		}
+		oddList.tail.next = evenList.head;
+		oddList.tail = evenList.tail;
+		return oddList;
+	}
+
 	public static void main(String[] args) {
 		initLinkedList();
 		while (true) {
 			System.out.println(
-					"PLZ select the operation ->  1 : SIZE \t 2 : DISPLAY \t 3 : CreateLinkedList \t 4 : FindTheKthElementFromTheEndOfLInkedList \t 5 : MiddleOfLInkedList \t 6 : MergeTwoSortedLinkedList \t 7 : MergeSortLinkedList \t 0 : EXIT");
+					"PLZ select the operation ->  1 : SIZE \t 2 : DISPLAY \t 3 : CreateLinkedList \t 4 : FindTheKthElementFromTheEndOfLInkedList \t 5 : MiddleOfLInkedList \t 6 : MergeTwoSortedLinkedList \t 7 : MergeSortLinkedList \t 8 : RemoveDuplicateElementFromSortedLinkedList \t 9 : FilterOddEventLinkedList  \t 0 : EXIT");
 
 			int index = Integer.parseInt(sc.nextLine());
 
@@ -244,7 +282,9 @@ public class PEP183_MergeSortLinkedList {
 					break;
 
 				case 3 :
-					addElement(linkedlist);
+					System.out.println("Enter the element to add at End: ");
+					int a = Integer.parseInt(sc.nextLine());
+					addElement(linkedlist, a);
 					break;
 
 				case 4 :
@@ -269,6 +309,19 @@ public class PEP183_MergeSortLinkedList {
 					PEP151_LinkedList sortedlinkedlist = mergeSortLinkedlist(linkedlist);
 					displayLinkedList(sortedlinkedlist);
 					break;
+
+				case 8:
+					PEP151_LinkedList uniqueLinkedList = removeDuplicateElementSortedLinkedlist(linkedlist);
+					System.out.println("unique value linkedlist: ");
+					displayLinkedList(uniqueLinkedList);
+					break;
+
+				case 9:
+					PEP151_LinkedList FilteredLinkedList = filterOddEventLinkedlist(linkedlist);
+					System.out.println("Filter Odd Event linkedlist: ");
+					displayLinkedList(FilteredLinkedList);
+					break;
+
 
 				default :
 					System.out.println("Your Input is incorrect, pls check");
