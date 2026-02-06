@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
-public class PEP259_LinearizeGenericTree_REVISE2 {
+public class PEP261_EEFLinearizeGenericTree_REVISE {
 
 	static private class Node {
 
