@@ -1,10 +1,10 @@
-package com.GenericTreeThreeHundred;
+package com.GenericTreeThreeOneZero;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class PEP226_ConstructureOfGT {
+public class PEP264_FindEnlInGT{
 
 	static private class Node {
 
@@ -23,6 +23,29 @@ public class PEP226_ConstructureOfGT {
 		for (Node child : node.children) {
 			displayGT(child);
 		}
+	}
+
+	static int sizeOfGT(Node root) {
+
+		int totalNode = 0;
+		for (Node childNode : root.children) {
+			totalNode += sizeOfGT(childNode);
+		}
+		return totalNode + 1;
+	}
+
+	static boolean findElementInGT(Node root, int num) {
+		if (root.data == num) {
+			return true;
+		}
+
+		for (Node childNode : root.children) {
+			boolean present = findElementInGT(childNode, num);
+			if (present) {
+				return present;
+			}
+		}
+		return false;
 	}
 
 	static Node root;
@@ -49,7 +72,10 @@ public class PEP226_ConstructureOfGT {
 			}
 		}
 
-		displayGT(root);
+		//displayGT(root);
+		System.out.println(90 + " present in generic tree :" + findElementInGT(root, 90));
+
+
 	}
 
 }

@@ -1,10 +1,10 @@
-package com.GenericTreeThreeHundred;
+package com.GenericTreeThreeOneZero;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class PEP239_TraversalsOfGT {
+public class PEP230_MaximumNodeValueInGT {
 
 	static private class Node {
 
@@ -44,29 +44,9 @@ public class PEP239_TraversalsOfGT {
 		return maxValue;
 	}
 
-	static int heightOfGT(Node root) {
-
-		int maxValue = -1;
-		for (Node childNode : root.children) {
-			int childMaxValue = heightOfGT(childNode);
-			maxValue = maxValue >= childMaxValue ? maxValue : childMaxValue;
-		}
-		return maxValue + 1;
-	}
-
-	static void traversalOfGT(Node root) {
-		System.out.println("Node pre : " + root.data);
-		for (Node childNode : root.children) {
-			System.out.println("Edge Pre : " + root.data + " - " + childNode.data);
-			traversalOfGT(childNode);
-			System.out.println("Edge post : " + root.data + " - " + childNode.data);
-		}
-		System.out.println("Node post : " + root.data);
-		return;
-	}
-
 	static Node root;
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 
 		int[] eularGT =
 				{10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1};
@@ -90,13 +70,7 @@ public class PEP239_TraversalsOfGT {
 
 		displayGT(root);
 		System.out.println("size of generic tree :" + sizeOfGT(root));
-
 		System.out.println("maximum value of node is : " + maxValueNode(root));
-
-		System.out.println("Height of generic tree at edge level : " + heightOfGT(root));
-
-		System.out.println("traversal of Generic Tree : ");
-		traversalOfGT(root);
 	}
 
 }

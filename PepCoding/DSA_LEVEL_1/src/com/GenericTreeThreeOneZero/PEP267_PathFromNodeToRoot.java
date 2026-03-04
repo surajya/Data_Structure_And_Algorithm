@@ -1,10 +1,10 @@
-package com.GenericTreeThreeHundred;
+package com.GenericTreeThreeOneZero;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class PEP228_SizeOfGT {
+public class PEP267_PathFromNodeToRoot{
 
 	static private class Node {
 
@@ -34,6 +34,38 @@ public class PEP228_SizeOfGT {
 		return totalNode + 1;
 	}
 
+	static boolean findElementInGT(Node root, int num) {
+		if (root.data == num) {
+			return true;
+		}
+
+		for (Node childNode : root.children) {
+			boolean present = findElementInGT(childNode, num);
+			if (present) {
+				return present;
+			}
+		}
+		return false;
+	}
+
+	static List<Integer> findPathOfNodeToRoot(Node root, int num) {
+		if (root.data == num) {
+			List<Integer> list = new ArrayList<>();
+			list.add(root.data);
+			return list;
+		}
+
+		for (Node childNode : root.children) {
+			List<Integer> list = findPathOfNodeToRoot(childNode, num);
+			if (list.size() > 0) {
+				list.add(root.data);
+				return list;
+			}
+		}
+		return new ArrayList<>();
+	}
+
+
 	static Node root;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -58,8 +90,16 @@ public class PEP228_SizeOfGT {
 			}
 		}
 
-		displayGT(root);
-		System.out.println("size of generic tree :" + sizeOfGT(root));
+		//displayGT(root);
+		System.out.println(90 + " present in generic tree :" + findElementInGT(root, 90));
+		List<Integer> list = findPathOfNodeToRoot(root, 120);
+		if (list.size() < 1) {
+			System.out.println("element is not present");
+		} else {
+			System.out.println("Path of " + 120 + " from node to root is" + list);
+		}
+
+
 	}
 
 }

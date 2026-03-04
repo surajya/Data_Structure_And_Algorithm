@@ -1,10 +1,10 @@
-package com.GenericTreeThreeHundred;
+package com.GenericTreeThreeOneZero;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class PEP278_TreesSimilerInShape{
+public class PEP281_TreesMirrorInShape{
 
 	static private class Node {
 
@@ -131,14 +131,14 @@ public class PEP278_TreesSimilerInShape{
 		return totalValue;
 	}
 
-	private static boolean checkTreeSimiler(Node root3, Node root22) {
+	private static boolean checkTreeMirror(Node root3, Node root22) {
 		// TODO Auto-generated method stub
 		if (root3.children.size() != root22.children.size()) {
 			return false;
 		}
 
 		for (int i = 0; i < root3.children.size(); i++) {
-			if (!checkTreeSimiler(root3.children.get(i), root22.children.get(i))) {
+			if (!checkTreeMirror(root3.children.get(i), root22.children.get(root22.children.size() - 1 - i))) {
 				return false;
 			}
 		}
@@ -151,7 +151,7 @@ public class PEP278_TreesSimilerInShape{
 		// TODO Auto-generated method stub
 
 		int[] eularGT =
-				{10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, 200, -1, -1,
+				{10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
 						-1};
 		Stack<Node> bucket = new Stack<>();
 
@@ -172,7 +172,7 @@ public class PEP278_TreesSimilerInShape{
 		}
 
 		int[] eularGT2 =
-				{10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1};
+				{10, 20, 30, -1, -1, 40, 50, -1, 60, 70, -1, 80, -1, -1, 90, -1, -1, 100, 110, -1, 120, -1, -1, -1};
 		Stack<Node> bucket2 = new Stack<>();
 
 		for (int x : eularGT2) {
@@ -204,7 +204,7 @@ public class PEP278_TreesSimilerInShape{
 
 		System.out.println("Distance between two nodes : " + findDistanceBetweenNode(root, 120, 110));
 
-		System.out.println("Tree are similer: " + checkTreeSimiler(root, root2));
+		System.out.println("Tree are Mirror Imange: " + checkTreeMirror(root, root2));
 
 	}
 
