@@ -1,4 +1,4 @@
-package com.GenericTreeThreeHundred;
+package com.GenericTreeThreeOneZero;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
-public class PEP256_RemoveLeavesFromGT {
+public class PEP243_LevelOrderLinewiseTraversalsOfGT_REVISE {
 
 	static private class Node {
 
@@ -94,73 +94,6 @@ public class PEP256_RemoveLeavesFromGT {
 		return;
 	}
 
-	static void levelOrderZigZagTraversalOfGT(Node root) {
-		Stack<Node> main = new Stack<>();
-		Stack<Node> child = new Stack<>();
-		System.out.println(root.data);
-		main.add(null);
-		main.add(root);
-		int level = 1;
-		
-		while (true) {
-			Node node = main.pop();
-			if (node == null && child.size() != 0) {
-				main.push(null);
-				Stack<Node> mainChild = new Stack<>();
-				while (child.size() > 0) {
-					System.out.print(child.peek().data + " -> ");
-					mainChild.push(child.pop());
-				}
-				System.out.println();
-				while (mainChild.size() > 0) {
-					main.push(mainChild.pop());
-				}
-				level++;
-			}
-			if (node != null && level % 2 != 0) {
-				for (Node childNode : node.children) {
-					child.add(childNode);
-				}
-			} else if (node != null && level % 2 == 0) {
-				for (int i = node.children.size() - 1; i >= 0; i--) {
-					child.add(node.children.get(i));
-				}
-			}
-
-			if (main.isEmpty()) {
-				break;
-			}
-		}
-		return;
-	}
-
-	static void mirrorOfGT(Node root) {
-		for (Node childNode : root.children) {
-			mirrorOfGT(childNode);
-		}
-		int left = 0;
-		int right = root.children.size() - 1;
-		while (left < right) {
-			Node temp = root.children.get(left);
-			root.children.set(left, root.children.get(right));
-			root.children.set(right, temp);
-			left++;
-			right--;
-		}
-		return;
-	}
-
-	static void removeLeafOfGT(Node root) {
-		for (int i = root.children.size() - 1; i >= 0; i--) {
-			Node childNode = root.children.get(i);
-			if (childNode.children.isEmpty()) {
-				root.children.remove(i);
-			} else {
-				removeLeafOfGT(childNode);
-			}
-		}
-	}
-
 	static Node root;
 	public static void main(String[] args) {
 
@@ -194,20 +127,8 @@ public class PEP256_RemoveLeavesFromGT {
 		System.out.println("\ntraversal of Generic Tree : ");
 		traversalOfGT(root);
 		
-		System.out.println("\nLevel Order traversal linewise of Generic Tree : ");
+		System.out.println("\nLevel Order traversal of Generic Tree : ");
 		levelOrderTraversalOfGT(root);
-
-		System.out.println("\nLevel Order traversal line wise Zig Zag of Generic Tree : ");
-		levelOrderZigZagTraversalOfGT(root);
-
-		//		System.out.println("\nMirror of Generic Tree : ");
-		//		mirrorOfGT(root);
-		//		displayGT(root);
-
-		System.out.println("\nRemove leaf node of Generic Tree : ");
-		removeLeafOfGT(root);
-		displayGT(root);
-
 	}
 
 }

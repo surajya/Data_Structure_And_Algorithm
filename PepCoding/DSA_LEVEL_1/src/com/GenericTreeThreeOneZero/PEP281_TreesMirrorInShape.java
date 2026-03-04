@@ -1,10 +1,10 @@
-package com.GenericTreeThreeHundred;
+package com.GenericTreeThreeOneZero;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class PEP271_LowestCommonAncestorEefficientsWay_REVISE{
+public class PEP281_TreesMirrorInShape{
 
 	static private class Node {
 
@@ -96,12 +96,63 @@ public class PEP271_LowestCommonAncestorEefficientsWay_REVISE{
 		return 0;
 	}
 
+	static int findDistanceBetweenNode(Node root, int num1, int num2) {
+		return findDistance(root, findLowestCommonAncestorOfNodes(root, num1, num2), num1, num2);
+	}
+
+	private static int findDistance(Node root, int lowestCommonAncestorOfNodes, int num1, int num2) {
+		// TODO Auto-generated method stub
+		if (root.data == lowestCommonAncestorOfNodes) {
+			return calculateDistance(root, root, num1, num2);
+		}
+		int totoalValue = 0;
+		for (Node childNode : root.children) {
+			totoalValue = findDistance(childNode, lowestCommonAncestorOfNodes, num1, num2);
+			if (totoalValue != 0) {
+				return totoalValue;
+			}
+		}
+		return 0;
+	}
+
+	private static int calculateDistance(Node root, Node rootRoot, int num1, int num2) {
+		// TODO Auto-generated method stub
+		int totalValue = 0;
+		for (Node childNode : root.children) {
+			int value = calculateDistance(childNode, rootRoot, num1, num2);
+			totalValue = totalValue + value;
+		}
+		if (root.data == num1 || root.data == num2) {
+			return 1;
+		}
+		if (totalValue != 0 && root != rootRoot) {
+			return ++totalValue;
+		}
+		return totalValue;
+	}
+
+	private static boolean checkTreeMirror(Node root3, Node root22) {
+		// TODO Auto-generated method stub
+		if (root3.children.size() != root22.children.size()) {
+			return false;
+		}
+
+		for (int i = 0; i < root3.children.size(); i++) {
+			if (!checkTreeMirror(root3.children.get(i), root22.children.get(root22.children.size() - 1 - i))) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	static Node root;
+	static Node root2;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		int[] eularGT =
-				{10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1};
+				{10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
+						-1};
 		Stack<Node> bucket = new Stack<>();
 
 		for (int x : eularGT) {
@@ -120,6 +171,26 @@ public class PEP271_LowestCommonAncestorEefficientsWay_REVISE{
 			}
 		}
 
+		int[] eularGT2 =
+				{10, 20, 30, -1, -1, 40, 50, -1, 60, 70, -1, 80, -1, -1, 90, -1, -1, 100, 110, -1, 120, -1, -1, -1};
+		Stack<Node> bucket2 = new Stack<>();
+
+		for (int x : eularGT2) {
+			if (x == -1) {
+				bucket2.pop();
+			} else {
+				Node childNode = new Node();
+				childNode.data = x;
+				if (bucket2.isEmpty()) {
+					bucket2.push(childNode);
+					root2 = childNode;
+				} else {
+					bucket2.peek().children.add(childNode);
+					bucket2.push(childNode);
+				}
+			}
+		}
+
 		//displayGT(root);
 		System.out.println(90 + " present in generic tree :" + findElementInGT(root, 90));
 		List<Integer> list = findPathOfNodeToRoot(root, 120);
@@ -129,8 +200,13 @@ public class PEP271_LowestCommonAncestorEefficientsWay_REVISE{
 			System.out.println("Path of " + 120 + " from node to root is" + list);
 		}
 
-		System.out.println("ancestor of 90 and 50 is :" + findLowestCommonAncestorOfNodes(root, 40, 100));
+		System.out.println("ancestor of 40 and 100 is :" + findLowestCommonAncestorOfNodes(root, 40, 100));
+
+		System.out.println("Distance between two nodes : " + findDistanceBetweenNode(root, 120, 110));
+
+		System.out.println("Tree are Mirror Imange: " + checkTreeMirror(root, root2));
 
 	}
+
 
 }

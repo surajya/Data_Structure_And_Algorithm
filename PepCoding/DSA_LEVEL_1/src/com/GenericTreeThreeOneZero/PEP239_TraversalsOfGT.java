@@ -1,12 +1,10 @@
-package com.GenericTreeThreeHundred;
+package com.GenericTreeThreeOneZero;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.Stack;
 
-public class PEP243_LevelOrderLinewiseTraversalsOfGT_REVISE {
+public class PEP239_TraversalsOfGT {
 
 	static private class Node {
 
@@ -66,33 +64,6 @@ public class PEP243_LevelOrderLinewiseTraversalsOfGT_REVISE {
 		System.out.println("Node post : " + root.data);
 		return;
 	}
-	
-	static void levelOrderTraversalOfGT(Node root) {
-		Queue<Node> queue = new LinkedList<>();
-		queue.add(root);
-		queue.add(null);
-		
-		while (true) {
-			Node node = queue.poll();
-			if (node == null && queue.size() != 0) {
-				queue.add(null);
-				System.out.println();
-			} else if (node != null) {
-				System.out.print(node.data + " ");
-			}
-
-			if (node != null) {
-				for (Node childNode : node.children) {
-					queue.add(childNode);
-				}
-			}
-
-			if (queue.isEmpty()) {
-				break;
-			}
-		}
-		return;
-	}
 
 	static Node root;
 	public static void main(String[] args) {
@@ -118,17 +89,14 @@ public class PEP243_LevelOrderLinewiseTraversalsOfGT_REVISE {
 		}
 
 		displayGT(root);
-		System.out.println("\nsize of generic tree :" + sizeOfGT(root));
+		System.out.println("size of generic tree :" + sizeOfGT(root));
 
-		System.out.println("\nmaximum value of node is : " + maxValueNode(root));
+		System.out.println("maximum value of node is : " + maxValueNode(root));
 
-		System.out.println("\nHeight of generic tree at edge level : " + heightOfGT(root));
+		System.out.println("Height of generic tree at edge level : " + heightOfGT(root));
 
-		System.out.println("\ntraversal of Generic Tree : ");
+		System.out.println("traversal of Generic Tree : ");
 		traversalOfGT(root);
-		
-		System.out.println("\nLevel Order traversal of Generic Tree : ");
-		levelOrderTraversalOfGT(root);
 	}
 
 }

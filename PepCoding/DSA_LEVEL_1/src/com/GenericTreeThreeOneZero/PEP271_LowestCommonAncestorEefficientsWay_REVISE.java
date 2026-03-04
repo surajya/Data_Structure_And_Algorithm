@@ -1,10 +1,10 @@
-package com.GenericTreeThreeHundred;
+package com.GenericTreeThreeOneZero;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class PEP275_FindDistanceBetweenNode{
+public class PEP271_LowestCommonAncestorEefficientsWay_REVISE{
 
 	static private class Node {
 
@@ -96,41 +96,6 @@ public class PEP275_FindDistanceBetweenNode{
 		return 0;
 	}
 
-	static int findDistanceBetweenNode(Node root, int num1, int num2) {
-		return findDistance(root, findLowestCommonAncestorOfNodes(root, num1, num2), num1, num2);
-	}
-
-	private static int findDistance(Node root, int lowestCommonAncestorOfNodes, int num1, int num2) {
-		// TODO Auto-generated method stub
-		if (root.data == lowestCommonAncestorOfNodes) {
-			return calculateDistance(root, root, num1, num2);
-		}
-		int totoalValue = 0;
-		for (Node childNode : root.children) {
-			totoalValue = findDistance(childNode, lowestCommonAncestorOfNodes, num1, num2);
-			if (totoalValue != 0) {
-				return totoalValue;
-			}
-		}
-		return 0;
-	}
-
-	private static int calculateDistance(Node root, Node rootRoot, int num1, int num2) {
-		// TODO Auto-generated method stub
-		int totalValue = 0;
-		for (Node childNode : root.children) {
-			int value = calculateDistance(childNode, rootRoot, num1, num2);
-			totalValue = totalValue + value;
-		}
-		if (root.data == num1 || root.data == num2) {
-			return 1;
-		}
-		if (totalValue != 0 && root != rootRoot) {
-			return ++totalValue;
-		}
-		return totalValue;
-	}
-
 	static Node root;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -164,9 +129,7 @@ public class PEP275_FindDistanceBetweenNode{
 			System.out.println("Path of " + 120 + " from node to root is" + list);
 		}
 
-		System.out.println("ancestor of 40 and 100 is :" + findLowestCommonAncestorOfNodes(root, 40, 100));
-
-		System.out.println("Distance between two nodes : " + findDistanceBetweenNode(root, 120, 110));
+		System.out.println("ancestor of 90 and 50 is :" + findLowestCommonAncestorOfNodes(root, 40, 100));
 
 	}
 
