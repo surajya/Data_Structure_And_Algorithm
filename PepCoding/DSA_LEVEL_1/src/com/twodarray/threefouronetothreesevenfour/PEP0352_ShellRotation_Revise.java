@@ -1,6 +1,6 @@
 package com.twodarray.threefouronetothreesevenfour;
 
-public class PEP0352_ShellRotation {
+public class PEP0352_ShellRotation_Revise {
 
 	public static void main(String[] args) {
 		//		int[][] arr = {
