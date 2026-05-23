@@ -1,7 +1,7 @@
 package com.recursion;
 
 
-public class printDecreasingIncreasing {
+public class PEP0377_PrintDecreasingIncreasing {
 
 	public static void main(String[] args) {
 		int n = 5;
