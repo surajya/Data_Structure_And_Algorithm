@@ -28,6 +28,5 @@ public class PEP0489_DecodingString {
 			prevList = dummyList;
 		}
 		System.out.println("total value is: " + list);
-		HashMap
 	}
 }

@@ -3,7 +3,7 @@ package com.pepal.hashmapHeap;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PEP0478_PriorityQueueUsingHeap {
+public class PEP0478_ImplementPriorityQueueUsingHeap {
 
 	public static void main(String[] args) {
 		ArrayList<Integer> list = new ArrayList<>();
