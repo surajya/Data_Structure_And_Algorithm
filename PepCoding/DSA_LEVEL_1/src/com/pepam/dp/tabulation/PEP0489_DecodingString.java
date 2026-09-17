@@ -1,4 +1,4 @@
-package com.pepam.dynamicProgramming;
+package com.pepam.dp.tabulation;
 
 import java.util.ArrayList;
 import java.util.List;

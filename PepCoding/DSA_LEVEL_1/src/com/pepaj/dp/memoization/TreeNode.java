@@ -1,4 +1,4 @@
-package com.pepaj.dynamicProgramming;
+package com.pepaj.dp.memoization;
 
 import java.util.LinkedList;
 import java.util.Queue;

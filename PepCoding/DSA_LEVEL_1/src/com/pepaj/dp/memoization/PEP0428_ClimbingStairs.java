@@ -1,4 +1,4 @@
-package com.pepaj.dynamicProgramming;
+package com.pepaj.dp.memoization;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
