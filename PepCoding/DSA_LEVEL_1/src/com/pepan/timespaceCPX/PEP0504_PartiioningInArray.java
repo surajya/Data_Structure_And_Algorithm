@@ -9,16 +9,14 @@ public class PEP0504_PartiioningInArray {
         int[] array = {3,8,4,7,6};
         int pivot = 6;
         int i = 0, j=0;
-        while(i<array.length){
-            if(i==j || array[i]>pivot) i++;
-            else if(array[j]<pivot) j++;
-            else if(array[i] <= pivot){
+        while(i<=array.length-1){
+            if(array[i] <= pivot){
                 int temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
                 i++;
                 j++;
-            }
+            }else i++;
         }
 
         for(int a:array){
