@@ -1,4 +1,4 @@
-package com.pepaj.dynamicProgramming;
+package com.pepaj.dp.memoization;
 
 public class PEP0432_TiltOfBinaryTree {
 

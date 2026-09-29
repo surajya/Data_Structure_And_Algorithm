@@ -1,4 +1,4 @@
-package com.pepam.dynamicProgramming;
+package com.pepam.dp.tabulation;
 
 public class PEP0485_01KnapsackProblem {
 
