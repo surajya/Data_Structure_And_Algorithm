@@ -4,7 +4,7 @@ public class PEP0514_TilingWithDominos {
 
     public static void main(String[] args) {
         int tile = 1;
-        int floor = 8;
+        int floor = 8 ;
         int height = 3;
 
         int[] dp = new int[floor+1];
