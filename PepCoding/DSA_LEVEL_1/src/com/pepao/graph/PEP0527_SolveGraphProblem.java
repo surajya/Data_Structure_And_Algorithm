@@ -4,27 +4,27 @@ import java.util.*;
 
 public class PEP0527_SolveGraphProblem {
     public static void main(String[] args) {
-        List<Path> paths = new ArrayList<>();
-        paths.add(new Path("A", "B", 5));
-        paths.add(new Path("A", "C", 16));
-        paths.add(new Path("C", "D", 7));
-        paths.add(new Path("D", "B", 8));
-        paths.add(new Path("D", "E", 9));
-        paths.add(new Path("B", "F", 10));
-        paths.add(new Path("E", "F", 21));
-        paths.add(new Path("E", "G", 12));
-        paths.add(new Path("F", "G", 17));
-        paths.add(new Path("B", "A", 5));
-        paths.add(new Path("C", "A", 16));
-        paths.add(new Path("D", "C", 7));
-        paths.add(new Path("B", "D", 8));
-        paths.add(new Path("E", "D", 9));
-        paths.add(new Path("F", "B", 10));
-        paths.add(new Path("F", "E", 21));
-        paths.add(new Path("G", "E", 12));
-        paths.add(new Path("G", "F", 17));
+        List<Edgee> paths = new ArrayList<>();
+        paths.add(new Edgee("A", "B", 5));
+        paths.add(new Edgee("A", "C", 16));
+        paths.add(new Edgee("C", "D", 7));
+        paths.add(new Edgee("D", "B", 8));
+        paths.add(new Edgee("D", "E", 9));
+        paths.add(new Edgee("B", "F", 10));
+        paths.add(new Edgee("E", "F", 21));
+        paths.add(new Edgee("E", "G", 12));
+        paths.add(new Edgee("F", "G", 17));
+        paths.add(new Edgee("B", "A", 5));
+        paths.add(new Edgee("C", "A", 16));
+        paths.add(new Edgee("D", "C", 7));
+        paths.add(new Edgee("B", "D", 8));
+        paths.add(new Edgee("E", "D", 9));
+        paths.add(new Edgee("F", "B", 10));
+        paths.add(new Edgee("F", "E", 21));
+        paths.add(new Edgee("G", "E", 12));
+        paths.add(new Edgee("G", "F", 17));
 
-        HashMap<String, List<Path>> graph = CreateGraph.createGraphFromListOfPath(paths);
+        HashMap<String, List<Edgee>> graph = CreateGraph.createGraphFromListOfPath(paths);
 
         HashMap<String, Boolean> visited = new HashMap<>();
         for(String key : graph.keySet()){
@@ -32,17 +32,17 @@ public class PEP0527_SolveGraphProblem {
         }
         TreeMap<String, Integer> allPath = findAllPath(graph, "A", "F", 0, visited);
        allPath.forEach((key, value) -> System.out.println(key + " -> " + value));
-        // For smallest weight path
+        // For smallest weight edge
         findSmallestWeightPath(allPath);
-        // For highest weight path
+        // For highest weight edge
         findHightestWeightPath(allPath);
-        // For smallest turn path
+        // For smallest turn edge
         findSmallestTrunPath(allPath);
-        // For highest turn path
+        // For highest turn edge
         findHighestTrunPath(allPath);
-        // For Ceil weight path
+        // For Ceil weight edge
         findCeilWeightPath(allPath, 40);
-        // For floor weight path
+        // For floor weight edge
         findFloorWeightPath(allPath, 40);
     }
 
@@ -55,7 +55,7 @@ public class PEP0527_SolveGraphProblem {
                 ans = entry.getKey();
             }
         }
-        System.out.println("Floor Weight path "+i+" : "+ans);
+        System.out.println("Floor Weight edge "+i+" : "+ans);
     }
 
     private static void findCeilWeightPath(TreeMap<String, Integer> allPath, int i) {
@@ -67,11 +67,11 @@ public class PEP0527_SolveGraphProblem {
                 ans = entry.getKey();
             }
         }
-        System.out.println("Ceil Weight path "+i+" : "+ans);
+        System.out.println("Ceil Weight edge "+i+" : "+ans);
     }
 
     private static void findHightestWeightPath(TreeMap<String, Integer> allPath) {
-        System.out.println( "Heighest weight path : "+ allPath.entrySet()
+        System.out.println( "Heighest weight edge : "+ allPath.entrySet()
                 .stream()
                 .max(Map.Entry.comparingByValue())
                 .map(Map.Entry::getKey)
@@ -80,7 +80,7 @@ public class PEP0527_SolveGraphProblem {
     }
 
     private static void findHighestTrunPath(TreeMap<String, Integer> allPath) {
-        System.out.println( "Highest Turn path : "+ allPath.entrySet()
+        System.out.println( "Highest Turn edge : "+ allPath.entrySet()
                 .stream()
                 .max(Map.Entry.comparingByKey(Comparator.comparingInt(String::length)))
                 .map(Map.Entry::getKey)
@@ -89,7 +89,7 @@ public class PEP0527_SolveGraphProblem {
     }
 
     private static void findSmallestTrunPath(TreeMap<String, Integer> allPath) {
-                System.out.println( "Smallest Turn path : "+ allPath
+                System.out.println( "Smallest Turn edge : "+ allPath
                         .entrySet()
                         .stream()
                         .min(Map.Entry.comparingByKey(Comparator.comparingInt(String::length)))
@@ -99,7 +99,7 @@ public class PEP0527_SolveGraphProblem {
     }
 
     private static void findSmallestWeightPath(TreeMap<String, Integer> allPath) {
-        System.out.println( "Smallest weight path : "+ allPath
+        System.out.println( "Smallest weight edge : "+ allPath
                 .entrySet()
                 .stream().
                 min(Map.Entry.comparingByValue())
@@ -108,20 +108,20 @@ public class PEP0527_SolveGraphProblem {
         );
     }
 
-    private static TreeMap<String, Integer> findAllPath(HashMap<String, List<Path>> graph, String origin, String dest, int weight,
+    private static TreeMap<String, Integer> findAllPath(HashMap<String, List<Edgee>> graph, String origin, String dest, int weight,
                                                         HashMap<String, Boolean> visited) {
 
         TreeMap<String, Integer> result  = new TreeMap<String, Integer>(Comparator.comparingInt(String::length)
                 .thenComparing(Comparator.naturalOrder()));
-        List<Path> paths = graph.get(origin);
+        List<Edgee> paths = graph.get(origin);
         if(paths==null || paths.isEmpty() || visited.get(origin)){ return   result;}
         if(origin.equals(dest)){
             result.put(origin, weight);
             return result;
         }
         visited.put(origin, true);
-        for(Path path : paths) {
-            TreeMap<String, Integer> pathTest = findAllPath(graph, path.destination, dest, path.weight, visited);
+        for(Edgee edge : paths) {
+            TreeMap<String, Integer> pathTest = findAllPath(graph, edge.destination, dest, edge.weight, visited);
             if (pathTest != null && !pathTest.isEmpty()) {
                 pathTest.forEach((key, value) -> result.put(origin.concat("->").concat(key), value + weight));
             }
