@@ -2,19 +2,7 @@ package com.pepao.graph;
 
 import java.util.*;
 
-class PairBP{
-    int origin;
-    String path;
-    int level;
-
-    public  PairBP(int origin, String path, int level){
-        this.origin = origin;
-        this.path = path;
-        this.level = level;
-    }
-}
-
-public class PEP0534_IsGraphBipartite {
+class PEP0534_IsGraphBipartite {
     public static void main(String[] args) {
         List<Edge> paths = new ArrayList<>();
         int vertices = 6;
