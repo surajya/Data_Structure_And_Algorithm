@@ -29,10 +29,10 @@ class PEP0536_DiskstraAlgorithm {
         List<Edge>[] graph = CreateGraph.createGraph(paths, vertices);
 
         boolean[] visited = new boolean[vertices];
-        findTotalInfected(graph, 0, visited);
+        printdiskstraAlgo(graph, 0, visited);
     }
 
-    private static void findTotalInfected(List<Edge>[] graph, int i, boolean[] visited) {
+    private static void printdiskstraAlgo(List<Edge>[] graph, int i, boolean[] visited) {
         Queue<Path> q = new PriorityQueue<>(Comparator.comparingInt(Path::weight));
         q.add(new Path(i, "0", 0));
 
