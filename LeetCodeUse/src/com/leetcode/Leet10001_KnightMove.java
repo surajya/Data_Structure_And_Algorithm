@@ -23,10 +23,11 @@ class CheckPoint{
 	}
 }
 
-public class Leet_KnightMove {
+public class Leet10001_KnightMove {
 
 	public static void main(String[] args) {
-		int[][] arr = new int[4][4];
+		int n=2;
+		int[][] arr = new int[n][n];
 		List<CheckPoint> knightPointList = new ArrayList<>();
 		knightPointList.addAll(Arrays.asList(
 				(new CheckPoint(1,2)),
@@ -37,29 +38,33 @@ public class Leet_KnightMove {
 				(new CheckPoint(-2,-1)),
 				(new CheckPoint(-2,1)),
 				(new CheckPoint(-1,2))));
-		System.out.println("all path is :"+ findKnightMove(arr, 0, 0, knightPointList, "00-", 1));
-//		List<String> listWay = findWayToSit(arr, 0, new int[arr.length], new int[arr[0].length], "");
-//		List<List<String>> ans = new ArrayList<>();
-//		for(String str : listWay){
-//			String[] qPoint = str.split("-");
-//			List<String> tempPath = new ArrayList<>();
-//			for(String point : qPoint){
-//				int x = point.charAt(0)-'0';
-//				int y = point.charAt(1)-'0';
-//				StringBuilder path = new StringBuilder();
-//				for(int i=0; i<arr.length; i++){
-//					if(i==y) path.append("Q");
-//					else path.append(".");
-//				}
-//				tempPath.add(path.toString());
-//			}
-//			ans.add(tempPath);
-//		}
-//		System.out.println(ans);
+		List<String> listWay = findKnightMove(arr, 0, 0, knightPointList, "00-", 1);
+		System.out.println("all path is :"+ listWay);
+		int[][] ans = new int[n][n];
+		for(String str : listWay){
+			String[] qPoint = str.split("-");
+			List<String> tempPath = new ArrayList<>();
+			int path =0;
+			for(String point : qPoint){
+				int x = point.charAt(0)-'0';
+				int y = point.charAt(1)-'0';
+				ans[x][y] = path;
+				path++;
+			}
+		}
+		List<List<Integer>> list = new ArrayList<>();
+		for (int[] row : ans) {
+			List<Integer> rowList = new ArrayList<>();
+			for (int val : row) {
+				rowList.add(val);
+			}
+			list.add(rowList);
+		}
+		System.out.println(list);
 	}
 
 	private static List<String> findKnightMove(int[][] arr, int i, int j, List<CheckPoint> knightPointList, String way, int totalvisit) {
-		if(totalvisit > 15) return Collections.singletonList(way);
+		if(totalvisit == arr.length * arr[0].length) return Collections.singletonList(way);
 
 		arr[i][j] = 1;
 		ArrayList<String> ways = new ArrayList<>();
@@ -67,7 +72,9 @@ public class Leet_KnightMove {
 			int x = i+ point.getI();
 			int y = j+ point.getJ();
 			if(checkSafe(arr, x, y) && arr[x][y] != 1){
+				if(!ways.isEmpty()) return ways;
 				ways.addAll(findKnightMove(arr, x, y, knightPointList, way+x+y+"-", totalvisit+1));
+
 			}
 		}
 		arr[i][j] = 0;
@@ -78,3 +85,5 @@ public class Leet_KnightMove {
         return i >= 0 && i< arr.length && j >= 0 && j < arr[0].length;
 	}
 }
+
+
